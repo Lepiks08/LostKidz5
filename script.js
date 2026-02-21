@@ -1,10 +1,11 @@
-// Get the button and game container
-const playSnakeBtn = document.getElementById('playSnakeBtn');
-const snakeGameContainer = document.getElementById('snakeGameContainer');
+// Check if user is logged in
+if (localStorage.getItem('isLoggedIn') !== 'true') {
+    // If not logged in, send them back to login page
+    window.location.href = "login.html";
+}
 
-// Add an event listener to the button
-playSnakeBtn.addEventListener('click', function() {
-    // Hide the background content and show the Snake game
-    document.querySelector('section').style.display = 'none';
-    snakeGameContainer.style.display = 'block';
-});
+// Add a logout function to your "Logout" button if you make one
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = "login.html";
+}
